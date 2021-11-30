@@ -1,0 +1,1 @@
+[04-Nov-2021 20:57:08 UTC] PHP Fatal error:  Declaration of Illuminate\Container\Container::get($id) must be compatible with Psr\Container\ContainerInterface::get(string $id) in /home/labirini/public_html/blog_labirin/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 17
