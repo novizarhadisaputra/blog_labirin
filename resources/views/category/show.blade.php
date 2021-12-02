@@ -44,9 +44,9 @@
                                                 {{ date('d M Y', strtotime($n->Tanggal)) }}
                                             </span>
                                         </div>
-                                        <p class="post-descmin">
+                                        <div class="post-descmin">
                                             {!! $n->Rangkuman !!}
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
