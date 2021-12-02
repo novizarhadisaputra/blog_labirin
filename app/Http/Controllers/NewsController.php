@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pick;
 use App\Models\Tag;
 use App\Models\News;
+use App\Models\Pick;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class NewsController extends Controller
 {
@@ -26,7 +27,11 @@ class NewsController extends Controller
      */
     public function index()
     {
+        $categories = $this->categories->all();
+        $news = $this->news->paginate(10);
+        $picks = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
 
+        return view('news.index', compact('categories', 'picks', 'news'));
     }
 
     /**
@@ -59,7 +64,13 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = $this->news->find($id);
-        $related = $this->news->where('ref', '<>', $id)->orderBy('Tanggal', 'desc')->paginate(4);
+        $related = $this->news->whereHas('tags', function (Builder $query) use ($news) {
+            if (count($news->tags)) {
+                $query->whereHas('criteria', function (Builder $query) use ($news) {
+                    $query->where(['ref' => $news->tags[0]->criteria()->first()->ref]);
+                })->with('criteria');
+            }
+        })->where('ref', '<>', $id)->orderBy('Tanggal', 'desc')->paginate(4);
         $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
         $categories = $this->categories->all();
 

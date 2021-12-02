@@ -59,10 +59,26 @@
     <script type="text/javascript" src="{{ asset('assets/vendor/masonry/masonry.pkgd.min.js') }}"></script>
     <!-- Owl Carousel -->
     <script type="text/javascript" src="{{ asset('assets/vendor/owlcarousel/owl.carousel.min.js') }}"></script>
+    <!-- Googlemap -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpb7MiYTbPFQX5FFkU7TWtDhGGZ4bLgyY&callback=initMap&libraries=&v=weekly"
+        defer></script>
     <!-- Main -->
     <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
     <!-- Init -->
     <script type="text/javascript">
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: {
+                    lat: -34.397,
+                    lng: 150.644
+                },
+                zoom: 8
+            });
+        }
+
         $('#top1-slider').owlCarousel({
             loop: true,
             autoplay: true,

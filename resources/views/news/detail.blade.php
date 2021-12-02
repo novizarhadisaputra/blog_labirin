@@ -29,7 +29,9 @@
                                 <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>
                                 {{ date('d M Y', strtotime($news->Tanggal)) }}
                             </span>
-
+                            <span class="small ms-1">
+                                {{ ucwords($news->media) }}
+                            </span>
                         </div>
                         <div class="img-hover-zoom">
                             <img class="img-fluid"
@@ -87,7 +89,7 @@
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
                                         <a href="{{ route('news.show', ['news' => $relate->ref]) }}">
-                                            <img src="{{ $relate->image ? env('APP_IMAGE_URL') . '/' . $relate->image . $relate->ekstensi : asset('assets/img/no-image.png') }}"
+                                            <img src="{{ $relate->image ? env('APP_IMAGE_URL') . '/' . $relate->image . '.' . $relate->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="...">
                                         </a>
                                     </div>
@@ -113,7 +115,7 @@
                                 <li class="d-flex mb-4 position-relative">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
                                         <a href="{{ route('news.show', ['news' => $hit->news->ref]) }}">
-                                            <img src="{{ $hit->news->image ?? asset('assets/img/no-image.png') }}"
+                                            <img src="{{ $hit->news->image ? env('APP_IMAGE_URL') . '/' . $hit->news->image . '.' . $hit->news->ekstensi :  asset('assets/img/no-image.png') }}"
                                                 alt="...">
                                         </a>
                                     </div>

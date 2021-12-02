@@ -14,984 +14,174 @@
                     <div class="alert alert-primary border-0 rounded-md mb-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
-                                <h2 class="text-primary "><i class="bi bi-broadcast-pin me-3 " aria-hidden="true"></i>Fokus
-                                    Ekonomi</h2>
+                                <a href="{{ route('kategori.show', ['kategori' => 2]) }}" class="h2 text-primary "><i
+                                        class="bi bi-broadcast-pin me-3 " aria-hidden="true"></i>Fokus
+                                    Ekonomi</a>
                             </div>
                             <div class="owl-top-nav"> </div>
                         </div>
                         <div class="mb-4">
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
+                            @foreach ($economies as $economy)
+                                <div class="d-flex mb-4">
+                                    <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
+                                        <a href="{{ route('news.show', ['news' => $economy->ref]) }}">
+                                            <img src="{{ $economy->image ? env('APP_IMAGE_URL') . $economy->image . '.' . $economy->ekstensi : asset('assets/img/no-image.png') }}"
+                                                alt="{{ $economy->Headline }}">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <a href="{{ route('news.show', ['news' => $economy->ref]) }}">
+                                            <h3 class="h4 post-title">{{ $economy->Headline }}</h3>
+                                        </a>
+                                        <div class="mb-2">
+                                            <span class="small text-primary">
+                                                <i class="bi bi-calendar2 mx-1"
+                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($economy->Tanggal)) }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="alert alert-secondary border-0 rounded-md mb-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
-                                <h2 class="text-secondary "><i class="bi bi-broadcast-pin me-3 "
-                                        aria-hidden="true"></i>Fokus Sosial</h2>
+                                <a href="{{ route('kategori.show', ['kategori' => 3]) }}" class="h2 text-secondary "><i
+                                        class="bi bi-broadcast-pin me-3 " aria-hidden="true"></i>Fokus Sosial</a>
                             </div>
                             <div class="owl-top-nav"> </div>
                         </div>
                         <div class="mb-4">
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
+                            @foreach ($socials as $social)
+                                <div class="d-flex mb-4">
+                                    <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
+                                        <a href="{{ route('news.show', ['news' => $social->ref]) }}">
+                                            <img src="{{ $social->image ? env('APP_IMAGE_URL') . $social->image . '.' . $social->ekstensi : asset('assets/img/no-image.png') }}"
+                                                alt="{{ $social->Headline }}">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <a href="{{ route('news.show', ['news' => $social->ref]) }}">
+                                            <h3 class="h4 post-title">{{ $social->Headline }}</h3>
+                                        </a>
+                                        <div class="mb-2">
+                                            <span class="small text-primary">
+                                                <i class="bi bi-calendar2 mx-1"
+                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($social->Tanggal)) }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                     <div class="alert alert-danger border-0 rounded-md mb-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
-                                <h2 class="text-danger "><i class="bi bi-broadcast-pin me-3 "
-                                        aria-hidden="true"></i>Fokus Birokrasi</h2>
+                                <a href="{{ route('kategori.show', ['kategori' => 5]) }}" class="text-danger h2"><i
+                                        class="bi bi-broadcast-pin me-3 " aria-hidden="true"></i>Fokus
+                                    Birokrasi</a>
                             </div>
                             <div class="owl-top-nav"> </div>
                         </div>
                         <div class="mb-4">
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
+                            @foreach ($birokrasi as $biro)
+                                <div class="d-flex mb-4">
+                                    <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
+                                        <a href="{{ route('news.show', ['news' => $biro->ref]) }}">
+                                            <img src="{{ $biro->image ? env('APP_IMAGE_URL') . $biro->image . '.' . $biro->ekstensi : asset('assets/img/no-image.png') }}"
+                                                alt="{{ $biro->Headline }}">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <a href="{{ route('news.show', ['news' => $biro->ref]) }}">
+                                            <h3 class="h4 post-title">{{ $biro->Headline }}</h3>
+                                        </a>
+                                        <div class="mb-2">
+                                            <span class="small text-primary">
+                                                <i class="bi bi-calendar2 mx-1"
+                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($biro->Tanggal)) }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="alert alert-success border-0 rounded-md mb-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
-                                <h2 class="text-success "><i class="bi bi-broadcast-pin me-3 "
-                                        aria-hidden="true"></i>Fokus Sumber Daya Alam</h2>
+                                <a href="{{ route('kategori.show', ['kategori' => 4]) }}" class="text-success h2"><i
+                                        class="bi bi-broadcast-pin me-3 " aria-hidden="true"></i>Fokus
+                                    Sumber Daya Alam</a>
                             </div>
                             <div class="owl-top-nav"> </div>
                         </div>
                         <div class="mb-4">
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
+                            @foreach ($sumberdaya as $sda)
+                                <div class="d-flex mb-4">
+                                    <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
+                                        <a href="{{ route('news.show', ['news' => $sda->ref]) }}">
+                                            <img src="{{ $sda->image ? env('APP_IMAGE_URL') . $sda->image . '.' . $sda->ekstensi : asset('assets/img/no-image.png') }}"
+                                                alt="{{ $sda->Headline }}">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <a href="{{ route('news.show', ['news' => $sda->ref]) }}">
+                                            <h3 class="h4 post-title">{{ $sda->Headline }}</h3>
+                                        </a>
+                                        <div class="mb-2">
+                                            <span class="small text-primary">
+                                                <i class="bi bi-calendar2 mx-1"
+                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($sda->Tanggal)) }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="alert alert-info border-0 rounded-md mb-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div>
-                                <h2 class="text-info "><i class="bi bi-broadcast-pin me-3 "
-                                        aria-hidden="true"></i>Fokus Infrastruktur</h2>
+                                <a href="{{route('kategori.show', ['kategori' => 6])}}" class="text-info h2"><i class="bi bi-broadcast-pin me-3 " aria-hidden="true"></i>Fokus
+                                    Infrastruktur</a>
                             </div>
                             <div class="owl-top-nav"> </div>
                         </div>
                         <div class="mb-4">
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
+                            @foreach ($infrastruktur as $infra)
+                                <div class="d-flex mb-4">
+                                    <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
+                                        <a href="{{ route('news.show', ['news' => $infra->ref]) }}">
+                                            <img src="{{ $infra->image ? env('APP_IMAGE_URL') . $infra->image . '.' . $infra->ekstensi : asset('assets/img/no-image.png') }}"
+                                                alt="{{ $infra->Headline }}">
+                                        </a>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <a href="{{ route('news.show', ['news' => $infra->ref]) }}">
+                                            <h3 class="h4 post-title">{{ $infra->Headline }}</h3>
+                                        </a>
+                                        <div class="mb-2">
+                                            <span class="small text-primary">
+                                                <i class="bi bi-calendar2 mx-1"
+                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($infra->Tanggal)) }}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&amp;q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-4">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-4">
                     <div class="sticky-side">
-                        <h2 class="section-title">Artikel Populer</h2>
-                        <ol class="list-group-numbered list-pop p-1">
-                            <li class="d-flex mb-4 position-relative">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 position-relative">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/ywO-x1VZgAUUGnHisYFHzLF3pxE=/0x0:780x390/750x500/data/photo/2015/12/03/1146074ThinkstockPhotos-101420365780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Uang Bisa Hilang Seketika, Ini Modus Investasi
-                                            Bodong Berkedok Robot Trading</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 position-relative">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/aJ5HVZob3A75PGSt9gT8kstfxbc=/1465x671:3620x2107/750x500/data/photo/2021/04/26/60860e56b7a96.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Disebut BUMN "Hantu" dan Mau Dibubarkan, Karyawan
-                                            Istaka Karya Protes</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 position-relative">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://asset.kompas.com/crops/Mdz3fYKL65W5tj3HIFrWMl9vovw=/93x0:678x390/750x500/data/photo/2013/03/04/2034282-pemaksaan-mata-pelajaran-agama-di-blitar-780x390.jpg"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">MK Tolak Gugatan Serikat Buruh Pertamina soal
-                                            Privatisasi BUMN</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="d-flex mb-4 position-relative">
-                                <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                    <a href="detail.html">
-                                        <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/20/b64dd746-3980-4392-be82-b817cf4be249.jpg?w=700&q=90"
-                                            alt="...">
-                                    </a>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
-                                        <h3 class="h4 post-title">Kekuasaan Kehakiman dan Lembaga Yudikatif dalam
-                                            UUD 1945</h3>
-                                    </a>
-                                    <div class="mb-2">
-                                        <span class="small text-primary">
-                                            <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>2 Okt 2021 |
-                                            08:00 WIB
-                                        </span>
-                                    </div>
-                                </div>
-                            </li>
-                        </ol>
+                        @include('components.news-popular')
+                        @include('components.news-category', ['categories' => $categories])
 
-                        <h2 class="section-title">Tag Popular</h2>
-                        <div class="mb-4">
-                            <a href="tag result.html"
-                                class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Ekonomi</a>
-                            <a href="tag result.html" class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Bisnis</a>
-                            <a href="tag result.html" class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Sosial</a>
-                            <a href="tag result.html" class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Budaya</a>
-                            <a href="tag result.html"
-                                class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Teknologi</a>
-                            <a href="tag result.html" class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Pabrik
-                                Mobil</a>
-                            <a href="tag result.html" class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Jual
-                                Mobil</a>
-                            <a href="tag result.html" class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Nasi
-                                Bungkus</a>
-                            <a href="tag result.html"
-                                class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Makanan</a>
-                        </div>
                     </div>
                 </div>
             </div>

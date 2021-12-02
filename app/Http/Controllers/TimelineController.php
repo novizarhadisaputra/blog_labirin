@@ -27,8 +27,8 @@ class TimelineController extends Controller
     public function index()
     {
         $categories = $this->categories->all();
-
-        return view('timeline', compact('categories'));
+        $news = $this->news->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
+        return view('timeline', compact('categories', 'news'));
     }
 
     /**
