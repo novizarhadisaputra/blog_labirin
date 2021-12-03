@@ -267,7 +267,7 @@
 
                     <div class="d-flex align-items-center justify-content-between">
                         <div>
-                            <h2 class="section-title">Ekonomi Terhangat</h2>
+                            <h2 class="section-title">Semua Berita</h2>
                         </div>
                         <a href="{{ route('news.index') }}">Selengkapnya<i class="bi bi-arrow-right ms-2"
                                 aria-hidden="true"></i></a>

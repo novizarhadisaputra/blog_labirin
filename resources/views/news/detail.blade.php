@@ -34,9 +34,9 @@
                             </span>
                         </div>
                         <div class="img-hover-zoom">
-                            <img class="img-fluid"
+                            <img class="img-fluid w-100"
                                 src="{{ $news->image ? env('APP_IMAGE_URL') . '/' . $news->image . '.' . $news->ekstensi : asset('assets/img/no-image.png') }}"
-                                alt="...">
+                                alt="{{ $news->Headline }}">
                         </div>
                         <div class="card-body py-2 px-0">
                             <div class="content-detail-blog">
@@ -115,7 +115,7 @@
                                 <li class="d-flex mb-4 position-relative">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
                                         <a href="{{ route('news.show', ['news' => $hit->news->ref]) }}">
-                                            <img src="{{ $hit->news->image ? env('APP_IMAGE_URL') . '/' . $hit->news->image . '.' . $hit->news->ekstensi :  asset('assets/img/no-image.png') }}"
+                                            <img src="{{ $hit->news->image ? env('APP_IMAGE_URL') . '/' . $hit->news->image . '.' . $hit->news->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="...">
                                         </a>
                                     </div>

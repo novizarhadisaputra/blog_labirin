@@ -82,7 +82,7 @@
         $('#top1-slider').owlCarousel({
             loop: true,
             autoplay: true,
-            autoplayTimeout: 3000,
+            autoplayTimeout: 6000,
             autoplayHoverPause: true,
             dots: false,
             nav: true,
@@ -101,7 +101,7 @@
         $('#top2-slider').owlCarousel({
             loop: true,
             autoplay: true,
-            autoplayTimeout: 2000,
+            autoplayTimeout: 4000,
             autoplayHoverPause: true,
             dots: false,
             nav: true,
@@ -120,7 +120,7 @@
         $('#top3-slider').owlCarousel({
             loop: true,
             autoplay: true,
-            autoplayTimeout: 1500,
+            autoplayTimeout: 3000,
             autoplayHoverPause: true,
             dots: false,
             margin: 20,
