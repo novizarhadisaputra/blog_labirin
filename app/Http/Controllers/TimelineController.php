@@ -24,10 +24,15 @@ class TimelineController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $categories = $this->categories->all();
-        $news = $this->news->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
+        if ($request->filled('keyword')) {
+            $news = $this->news->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%')
+                ->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
+        } else {
+            $news = $this->news->where(['approval' => 1])->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
+        }
         return view('timeline', compact('categories', 'news'));
     }
 

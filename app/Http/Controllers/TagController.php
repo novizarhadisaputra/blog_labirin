@@ -61,7 +61,7 @@ class TagController extends Controller
     public function show(Tag $tag)
     {
         $categories = $this->categories->all();
-        $news = $tag->news()->paginate(10);
+        $news = $tag->news()->where(['approval' => 1])->orderBy('Tanggal', 'desc')->paginate(10);
         $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
         return view('tags.index', compact('categories', 'tag', 'news', 'pick'));
     }

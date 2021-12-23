@@ -16,25 +16,24 @@
                 <div class="col-md-8">
                     <form class="row g-3 mb-4" action="{{ route('search.index') }}" method="GET">
                         @csrf
-                        <input type="text" value="{{ request()->input('keyword') }}" name="keyword" style="display: none">
-                        <div class="col-md">
+                        <div class="col-md-4">
+                            <input type="text" placeholder="Search" name="keyword" class="form-control">
+                        </div>
+                        <div class="col-md-3">
                             <select id="inputKategori" name="category" class="form-select">
                                 <option value="">Semua</option>
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->ref }}" {{ request()->input('category') == $category->ref ? 'selected' : '' }}>{{ $category->Kriteria }}</option>
+                                    <option value="{{ $category->ref }}"
+                                        {{ request()->input('category') == $category->ref ? 'selected' : '' }}>
+                                        {{ $category->Kriteria }}</option>
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-md">
-                            <input type="date" value="{{ request()->input('date') ?? '' }}" name="date" class="form-control" id="inputDate">
-                        </div>
-                        <div class="col-md">
-                            <select id="inputUrutkan" name="orderBy" class="form-select">
-                                <option value="desc" {{ request()->input('orderBy') == 'desc' ? 'selected' : '' }}>Terbaru</option>
-                                <option value="asc" {{ request()->input('orderBy') == 'asc' ? 'selected' : '' }}>Terlama</option>
-                            </select>
-                        </div>
                         <div class="col-md-3">
+                            <input type="date" value="{{ request()->input('date') ?? '' }}" name="date"
+                                class="form-control" id="inputDate">
+                        </div>
+                        <div class="col-md">
                             <button class="icon-button" type="submit"><i class="bi bi-search"></i></button>
                         </div>
                     </form>

@@ -16,11 +16,13 @@
                         <h3 class="display-6 fw-bold mb-3">{{ $news->Headline }}
                         </h3>
                         <div class="mb-2">
-                            <a href="kategori result.html">
+                            <a
+                                href="{{ route('kategori.show', ['kategori' => $news->tags[0]->criteria()->first()->ref]) }}">
                                 <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1" aria-hidden="true"></i>
-                                    Sosial</span>
+                                    {{ $news->tags[0]->criteria()->first()->Kriteria }}</span>
                             </a>
-                            <a href="kategori result.html">
+                            <a
+                                href="{{ route('kategori.show', ['kategori' => $news->tags[0]->criteria()->first()->ref]) }}">
                                 <span class="small text-primary">
                                     <i class="bi bi-person-square mx-1" aria-hidden="true"></i> {{ $news->UserUpdate }}
                                 </span>
@@ -46,7 +48,7 @@
                                 <div class="mb-4">
                                     <h5>Tags :</h5>
                                     @foreach ($news->tags as $tag)
-                                        <a href="tag result.html"
+                                        <a href="{{ route('tag.show', ['tag' => $tag]) }}"
                                             class="btn btn-sm btn-outline-secondary rounded-pill m-1">#{{ $tag->tag }}</a>
                                     @endforeach
                                     {{-- <a href="tag result.html"
@@ -88,19 +90,19 @@
                             @forelse ($related as $relate)
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $relate->ref]) }}">
-                                            <img src="{{ $relate->image ? env('APP_IMAGE_URL') . '/' . $relate->image . '.' . $relate->ekstensi : asset('assets/img/no-image.png') }}"
-                                                alt="...">
+                                        <a href="{{ route('news.show', ['news' => $relate->id_news]) }}">
+                                            <img src="{{ $relate->img ? env('APP_IMAGE_URL') . '/' . $relate->img . '.' . $relate->ekstensi : asset('assets/img/no-image.png') }}"
+                                                alt="{{ $relate->headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $relate->ref]) }}">
-                                            <h3 class="h4 post-title">{{ $relate->Headline }}</h3>
+                                        <a href="{{ route('news.show', ['news' => $relate->id_news]) }}">
+                                            <h3 class="h4 post-title">{{ $relate->headline }}</h3>
                                         </a>
                                         <div class="mb-2">
                                             <span class="small text-primary">
                                                 <i class="bi bi-calendar2 mx-1"
-                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($relate->Tanggal)) }}
+                                                    aria-hidden="true"></i>{{ date('d M Y', strtotime($relate->tanggal)) }}
                                             </span>
                                         </div>
                                     </div>

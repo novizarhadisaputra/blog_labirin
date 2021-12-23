@@ -35,36 +35,38 @@ class FocusController extends Controller
     {
         $categories = $this->categories->all();
         $picks = $this->pick->whereHas('news', function (Builder $query) {
+            $query->where(['approval' => 1]);
             $query->whereHas('tags', function (Builder $query) {
                 $query->with('criteria');
             });
         })->orderBy('ref_news', 'desc')->paginate(5);
 
-        $economies = $this->news->whereHas('tags', function (Builder $query) {
+        $economies = $this->news->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
+            $query->where(['approval' => 1]);
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::EKONOMI]);
             })->with('criteria');
         })->orderBy('Tanggal', 'desc')->paginate(50)->getCollection()->random(6);
 
-        $socials = $this->news->whereHas('tags', function (Builder $query) {
+        $socials = $this->news->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::SOSIAL]);
             })->with('criteria');
         })->orderBy('Tanggal', 'desc')->paginate(50)->getCollection()->random(6);
 
-        $sumberdaya = $this->news->whereHas('tags', function (Builder $query) {
+        $sumberdaya = $this->news->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::SUMBERDAYAALAM]);
             })->with('criteria');
         })->orderBy('Tanggal', 'desc')->paginate(50)->getCollection()->random(6);
 
-        $birokrasi = $this->news->whereHas('tags', function (Builder $query) {
+        $birokrasi = $this->news->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::BIROKRASI]);
             })->with('criteria');
         })->orderBy('Tanggal', 'desc')->paginate(50)->getCollection()->random(6);
 
-        $infrastruktur = $this->news->whereHas('tags', function (Builder $query) {
+        $infrastruktur = $this->news->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::INFRASTRUKTUR]);
             })->with('criteria');

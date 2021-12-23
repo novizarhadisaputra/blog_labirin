@@ -21,7 +21,7 @@
                                     <div class="img-hover-zoom">
                                         <a class="post-badge" href="kategori result.html">
                                             <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
-                                                    aria-hidden="true"></i> Sosial</span>
+                                                    aria-hidden="true"></i> {{ $category->Kriteria }}</span>
                                         </a>
                                         <a href="{{ route('news.show', ['news' => $n->ref]) }}"><img
                                                 class="img-fluid"

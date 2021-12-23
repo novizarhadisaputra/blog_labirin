@@ -30,7 +30,7 @@ class SearchController extends Controller
     {
         $orderBy = 'desc';
         $categories = $this->categories->all();
-        $news = $this->news->where('Headline', 'like', '%' . $request->keyword . '%');
+        $news = $this->news->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%');
         if ($request->filled('orderBy')) {
             $orderBy = $request->orderBy;
         }

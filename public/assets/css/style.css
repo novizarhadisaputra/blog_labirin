@@ -1083,6 +1083,7 @@ a.text-danger:hover {
 
 .timeline .post-descmin {
     -webkit-line-clamp: 2;
+    max-height: 3rem;
 }
 
 @media (max-width: 768px) {

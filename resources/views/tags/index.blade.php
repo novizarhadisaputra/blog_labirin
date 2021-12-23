@@ -21,12 +21,12 @@
                                     <div class="img-hover-zoom">
                                         <a class="post-badge" href="kategori result.html">
                                             <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
-                                                    aria-hidden="true"></i> Sosial</span>
+                                                    aria-hidden="true"></i> {{ $tag->tag }}</span>
                                         </a>
                                         <a href="{{ route('news.show', ['news' => $n->ref]) }}"><img
                                                 class="img-fluid"
                                                 src="{{ $n->image ? env('APP_IMAGE_URL') . '/' . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
-                                                alt="..."></a>
+                                                alt="{{ $n->Headline }}"></a>
                                     </div>
                                     <div class="card-body py-2 px-0">
                                         <a href="{{ route('news.show', ['news' => $n->ref]) }}">
@@ -44,9 +44,9 @@
                                                 {{ date('d M Y', strtotime($n->Tanggal)) }}
                                             </span>
                                         </div>
-                                        <p class="post-descmin">
+                                        <div class="post-descmin">
                                             {!! $n->Rangkuman !!}
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
