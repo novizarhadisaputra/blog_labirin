@@ -7,8 +7,7 @@
                 <h2 class="h1 my-2">{{ $category->Kriteria }}</h2>
                 <span class="text-primary">( {{ $count }} )</span>
             </div> --}}
-            <form class="row g-3 mb-4" action="{{ route('kategori.index') }}" method="GET">
-                @csrf
+            <form class="row g-3 mb-4" action="{{ route('search.index') }}" method="GET">
                 <input type="text" value="{{ request()->input('keyword') }}" name="keyword" style="display: none">
                 <div class="col-md">
                     <select id="inputKategori" name="category" class="form-select">

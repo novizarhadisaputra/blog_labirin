@@ -28,23 +28,42 @@ class SearchController extends Controller
      */
     public function index(Search $request)
     {
-        $orderBy = 'desc';
-        $categories = $this->categories->all();
-        $news = $this->news->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%');
-        if ($request->filled('orderBy')) {
-            $orderBy = $request->orderBy;
+        try {
+            $orderBy = 'desc';
+            $categories = $this->categories->all();
+
+            if ($request->filled('keyword')) {
+                $news = $this->news->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%');
+            } else {
+                $news = $this->news->where(['approval' => 1]);
+            }
+
+            if ($request->filled('orderBy')) {
+                $orderBy = $request->orderBy;
+            }
+
+            if ($request->filled('date')) {
+                $news = $news->where(['Tanggal' => $request->date]);
+            } else {
+                $news = $news->where('Tanggal', '<=', date('Y-m-d'));
+            }
+
+            if ($request->filled('category')) {
+                $news = $news->whereHas('tags', function (Builder $query) use ($request) {
+                    $query->where(['criteria' => $request->category]);
+                });
+            } else {
+                $news = $news->has('tags');
+            }
+
+            $news = $news->select('ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
+                ->orderBy('Tanggal', $orderBy)->paginate(10);
+            $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
+
+            return view('search.index', compact('categories', 'pick', 'news'));
+        } catch (\Exception $e) {
+            return redirect()->back();
         }
-        if ($request->filled('date')) {
-            $news = $news->where(['Tanggal' => $request->date]);
-        }
-        if ($request->filled('category')) {
-            $news = $news->whereHas('tags', function (Builder $query) use ($request) {
-                $query->where(['criteria' => $request->category]);
-            });
-        }
-        $news = $news->orderBy('Tanggal', $orderBy)->paginate(10);
-        $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
-        return view('search.index', compact('categories', 'pick', 'news'));
     }
 
     /**

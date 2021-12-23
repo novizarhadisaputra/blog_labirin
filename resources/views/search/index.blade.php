@@ -15,7 +15,6 @@
             <div class="row">
                 <div class="col-md-8">
                     <form class="row g-3 mb-4" action="{{ route('search.index') }}" method="GET">
-                        @csrf
                         <div class="col-md-4">
                             <input type="text" placeholder="Search" name="keyword" class="form-control">
                         </div>
@@ -43,7 +42,7 @@
                                 <div class="flex-shrink-0 img-thumb-md img-hover-zoom mx-1 position-relative mb-4">
                                     <a class="post-badge" href="kategori result.html">
                                         <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
-                                                aria-hidden="true"></i> Sosial</span>
+                                                aria-hidden="true"></i>{{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
                                     </a>
                                     <a href="detail.html">
                                         <img src="{{ $n->image ? env('APP_IMAGE_URL') . '/' . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
@@ -67,14 +66,14 @@
                                             {{ date('d M Y', strtotime($n->Tanggal)) }}
                                         </span>
                                     </div>
-                                    <p class="post-descmin">
+                                    <div class="post-descmin">
                                         {!! $n->Rangkuman !!}
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                    {{ $news->links() }}
+                    {{ $news->appends(request()->all())->links() }}
 
                 </div>
 

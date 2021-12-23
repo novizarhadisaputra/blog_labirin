@@ -38,7 +38,7 @@ class CategoryController extends Controller
             $category = json_decode(json_encode($category->toArray()));
             $category->news = $this->news
                 ->select('ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
-                ->whereIn('ref', $id_news)->orderBy('Tanggal', 'desc')->paginate(10)->getCollection();
+                ->whereIn('ref', $id_news)->where('Tanggal', '<=', date('Y-m-d'))->orderBy('Tanggal', 'desc')->paginate(10)->getCollection();
             $collection[] = $category;
         }
         $categories = $collection;
