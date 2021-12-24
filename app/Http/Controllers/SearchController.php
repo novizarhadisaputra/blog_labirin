@@ -33,7 +33,8 @@ class SearchController extends Controller
             $categories = $this->categories->all();
 
             if ($request->filled('keyword')) {
-                $news = $this->news->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%');
+                $news = $this->news->where(['approval' => 1])
+                    ->where('Headline', 'like', '%' . $request->keyword . '%');
             } else {
                 $news = $this->news->where(['approval' => 1]);
             }
@@ -43,7 +44,7 @@ class SearchController extends Controller
             }
 
             if ($request->filled('date')) {
-                $news = $news->where(['Tanggal' => $request->date]);
+                $news = $news->where('Tanggal', '<=', $request->date);
             } else {
                 $news = $news->where('Tanggal', '<=', date('Y-m-d'));
             }
@@ -56,11 +57,13 @@ class SearchController extends Controller
                 $news = $news->has('tags');
             }
 
-            $news = $news->select('ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
+            $count = $news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
+                ->orderBy('Tanggal', $orderBy)->count();
+            $news = $news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
                 ->orderBy('Tanggal', $orderBy)->paginate(10);
             $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
 
-            return view('search.index', compact('categories', 'pick', 'news'));
+            return view('search.index', compact('categories', 'pick', 'news', 'count'));
         } catch (\Exception $e) {
             return redirect()->back();
         }

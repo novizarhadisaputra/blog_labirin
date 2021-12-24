@@ -8,6 +8,7 @@ use App\Models\Pick;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Database\Eloquent\Builder;
 
 class NewsController extends Controller
 {
@@ -29,8 +30,17 @@ class NewsController extends Controller
     public function index()
     {
         $categories = $this->categories->all();
-        $news = $this->news->where(['approval' => 1])->paginate(10);
-        $picks = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
+        $news = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
+            ->orderBy('Tanggal', 'desc')
+            ->where(['approval' => 1])->paginate(10);
+        $picks = $this->pick->whereHas('news', function (Builder $query) {
+            $query->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate');
+            $query->where(['approval' => 1]);
+            $query->whereHas('tags', function (Builder $query) {
+                $query->with('criteria');
+            });
+            $query->orderBy('Tanggal', 'desc');
+        })->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
 
         return view('news.index', compact('categories', 'picks', 'news'));
     }

@@ -2,11 +2,6 @@
 @section('content')
     <section class="mt-5">
         <div class="container">
-            {{-- <div class="alert alert-primary border-0 text-center py-5">
-                <span class="small fw-bold text-primary">Kategori</span>
-                <h2 class="h1 my-2">{{ $category->Kriteria }}</h2>
-                <span class="text-primary">( {{ $count }} )</span>
-            </div> --}}
             <form class="row g-3 mb-4" action="{{ route('search.index') }}" method="GET">
                 <input type="text" value="{{ request()->input('keyword') }}" name="keyword" style="display: none">
                 <div class="col-md">
@@ -44,10 +39,6 @@
                     <div class="row">
                         @foreach ($categories as $category)
                             @foreach ($category->news as $n)
-                                {{-- @php
-                                    echo $category->Kriteria;
-                                    die()
-                                @endphp --}}
                                 <div class="col-md-6">
                                     <div class="card border-0 mb-4">
                                         <div class="img-hover-zoom">
@@ -66,7 +57,7 @@
                                                 <h3 class="h4 post-title">{{ $n->Headline }}</h3>
                                             </a>
                                             <div class="mb-2">
-                                                <a href="kategori result.html">
+                                                <a href="">
                                                     <span class="small text-primary">
                                                         <i class="bi bi-person-square mx-1" aria-hidden="true"></i>
                                                         {{ $n->UserUpdate }}
@@ -75,6 +66,9 @@
                                                 <span class="small">
                                                     <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>
                                                     {{ date('d M Y', strtotime($n->Tanggal)) }}
+                                                </span>
+                                                <span class="small ms-1">
+                                                    {{ ucwords($n->media) }}
                                                 </span>
                                             </div>
                                             <div class="post-descmin">

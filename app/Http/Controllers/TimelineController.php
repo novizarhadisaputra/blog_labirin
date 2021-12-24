@@ -28,10 +28,10 @@ class TimelineController extends Controller
     {
         $categories = $this->categories->all();
         if ($request->filled('keyword')) {
-            $news = $this->news->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%')
+            $news = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')->where(['approval' => 1])->where('Headline', 'like', '%' . $request->keyword . '%')
                 ->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
         } else {
-            $news = $this->news->where(['approval' => 1])->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
+            $news = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')->where(['approval' => 1])->whereHas('tags')->orderBy('Tanggal', 'desc')->simplePaginate();
         }
         return view('timeline', compact('categories', 'news'));
     }

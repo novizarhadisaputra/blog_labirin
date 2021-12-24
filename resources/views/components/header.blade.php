@@ -4,7 +4,7 @@
             <div class="w-100 d-flex justify-content-between align-items-center">
                 <button class="icon-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu"
                     aria-controls="offcanvasMenu"><i class="bi bi-list"></i></button>
-                <a href="index.html"><img src="assets/img/labirin.svg" alt="" height="20"></a>
+                <a href="{{ route('root') }}"><img src="{{ asset('assets/img/labirin.svg') }}" alt="" height="20"></a>
                 <button class="icon-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasSearch"
                     aria-controls="offcanvasSearch"><i class="bi bi-search"></i></button>
             </div>

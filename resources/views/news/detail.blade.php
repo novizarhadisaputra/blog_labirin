@@ -51,16 +51,6 @@
                                         <a href="{{ route('tag.show', ['tag' => $tag]) }}"
                                             class="btn btn-sm btn-outline-secondary rounded-pill m-1">#{{ $tag->tag }}</a>
                                     @endforeach
-                                    {{-- <a href="tag result.html"
-                                        class="btn btn-sm btn-outline-secondary rounded-pill m-1">#ACV</a>
-                                    <a href="tag result.html"
-                                        class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Astra</a>
-                                    <a href="tag result.html"
-                                        class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Inspeksi</a>
-                                    <a href="tag result.html"
-                                        class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Mobil</a>
-                                    <a href="tag result.html"
-                                        class="btn btn-sm btn-outline-secondary rounded-pill m-1">#Mobil Murah</a> --}}
                                 </div>
                                 <div class="mb-4">
                                     <h5>Share To :</h5>

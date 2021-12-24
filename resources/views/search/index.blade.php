@@ -5,7 +5,7 @@
             <div class="alert alert-primary border-0 text-center py-5">
                 <span class="small fw-bold text-primary">Hasil Pencarian Untuk</span>
                 <h2 class="h1 my-2">{{ request()->input('keyword') }}</h2>
-                <span class="text-primary">(30) Result</span>
+                <span class="text-primary">({{ $count }}) Result</span>
             </div>
         </div>
 
@@ -40,22 +40,23 @@
                         @foreach ($news as $n)
                             <div class="d-md-flex mb-4">
                                 <div class="flex-shrink-0 img-thumb-md img-hover-zoom mx-1 position-relative mb-4">
-                                    <a class="post-badge" href="kategori result.html">
+                                    <a class="post-badge"
+                                        href="{{ route('kategori.show', ['kategori' => $n->tags[0]->criteria()->first()->ref]) }}">
                                         <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
                                                 aria-hidden="true"></i>{{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
                                     </a>
-                                    <a href="detail.html">
+                                    <a href="{{ route('news.show', ['news' => $n->ref]) }}">
                                         <img src="{{ $n->image ? env('APP_IMAGE_URL') . '/' . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
                                             alt="...">
                                     </a>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <a href="detail.html">
+                                    <a href="{{ route('news.show', ['news' => $n->ref]) }}">
                                         <h2 class="post-title">{{ $n->Headline }}
                                         </h2>
                                     </a>
                                     <div class="mb-2">
-                                        <a href="kategori result.html">
+                                        <a href="">
                                             <span class="small text-primary">
                                                 <i class="bi bi-person-square mx-1" aria-hidden="true"></i>
                                                 {{ $n->UserUpdate }}
@@ -65,6 +66,7 @@
                                             <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>
                                             {{ date('d M Y', strtotime($n->Tanggal)) }}
                                         </span>
+                                        <span class="small ms-1">{{ ucwords($n->media) }}</span>
                                     </div>
                                     <div class="post-descmin">
                                         {!! $n->Rangkuman !!}

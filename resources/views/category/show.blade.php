@@ -19,7 +19,8 @@
                             <div class="col-md-6">
                                 <div class="card border-0 mb-4">
                                     <div class="img-hover-zoom">
-                                        <a class="post-badge" href="kategori result.html">
+                                        <a class="post-badge"
+                                            href="{{ route('kategori.show', ['kategori' => $category->ref]) }}">
                                             <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
                                                     aria-hidden="true"></i> {{ $category->Kriteria }}</span>
                                         </a>
@@ -33,7 +34,7 @@
                                             <h3 class="h4 post-title">{{ $n->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
-                                            <a href="kategori result.html">
+                                            <a href="">
                                                 <span class="small text-primary">
                                                     <i class="bi bi-person-square mx-1" aria-hidden="true"></i>
                                                     {{ $n->UserUpdate }}

@@ -29,7 +29,8 @@
                                             <div class="d-lg-flex">
                                                 <div
                                                     class="flex-shrink-0 img-thumb-md img-hover-zoom mx-1 position-relative mb-4">
-                                                    <a class="post-badge" href="kategori result.html">
+                                                    <a class="post-badge"
+                                                        href="{{ route('kategori.show', ['kategori' => $n->tags[0]->criteria()->first()->ref]) }}">
                                                         <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
                                                                 aria-hidden="true"></i>
                                                             {{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
@@ -44,7 +45,7 @@
                                                         <h2 class="post-title">{{ $n->Headline }}</h2>
                                                     </a>
                                                     <div class="mb-2">
-                                                        <a href="kategori result.html">
+                                                        <a href="">
                                                             <span class="small text-primary">
                                                                 <i class="bi bi-person-square mx-1" aria-hidden="true"></i>
                                                                 {{ $n->UserUpdate }}

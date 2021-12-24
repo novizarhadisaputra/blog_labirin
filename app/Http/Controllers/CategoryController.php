@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Tag;
 use App\Models\News;
 use App\Models\Pick;
-use App\Models\Tag;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class CategoryController extends Controller
 {
@@ -37,12 +38,18 @@ class CategoryController extends Controller
             }
             $category = json_decode(json_encode($category->toArray()));
             $category->news = $this->news
-                ->select('ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
+                ->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
                 ->whereIn('ref', $id_news)->where('Tanggal', '<=', date('Y-m-d'))->orderBy('Tanggal', 'desc')->paginate(10)->getCollection();
             $collection[] = $category;
         }
         $categories = $collection;
-        $picks = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
+        $picks = $this->pick->whereHas('news', function (Builder $query) {
+            $query->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
+                ->where(['approval' => 1]);
+            $query->whereHas('tags', function (Builder $query) {
+                $query->with('criteria');
+            });
+        })->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
 
         return view('category.index', compact('categories', 'picks'));
     }

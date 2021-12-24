@@ -19,9 +19,11 @@
                             <div class="col-md-6">
                                 <div class="card border-0 mb-4">
                                     <div class="img-hover-zoom">
-                                        <a class="post-badge" href="kategori result.html">
+                                        <a class="post-badge"
+                                            href="{{ route('kategori.show', ['kategori' => $n->tags[0]->criteria()->first()->ref]) }}">
                                             <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
-                                                    aria-hidden="true"></i> {{ $tag->tag }}</span>
+                                                    aria-hidden="true"></i>
+                                                {{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
                                         </a>
                                         <a href="{{ route('news.show', ['news' => $n->ref]) }}"><img
                                                 class="img-fluid"
@@ -33,7 +35,7 @@
                                             <h3 class="h4 post-title">{{ $n->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
-                                            <a href="kategori result.html">
+                                            <a href="">
                                                 <span class="small text-primary">
                                                     <i class="bi bi-person-square mx-1" aria-hidden="true"></i>
                                                     {{ $n->UserUpdate }}
@@ -41,7 +43,7 @@
                                             </a>
                                             <span class="small">
                                                 <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>
-                                                {{ date('d M Y', strtotime($n->Tanggal)) }}
+                                                {{ date('d M Y', strtotime($n->Tanggal)) . ' ' . $n->media }}
                                             </span>
                                         </div>
                                         <div class="post-descmin">
@@ -55,7 +57,7 @@
                     </div>
                     <div class="text-center">
                         {{-- <button type="button" class="btn btn-sm btn-outline-primary">Load more</button> --}}
-                        {{ $news->links() }}
+                        {{ $news->appends(request()->all())->links() }}
                     </div>
                 </div>
                 <div class="col-md-4">

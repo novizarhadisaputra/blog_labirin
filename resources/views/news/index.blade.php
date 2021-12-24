@@ -7,7 +7,7 @@
                 <h2 class="h1 my-2">{{ $category->Kriteria }}</h2>
                 <span class="text-primary">( {{ $count }} )</span>
             </div> --}}
-            <form class="row g-3 mb-4" action="{{ route('kategori.index') }}" method="GET">
+            <form class="row g-3 mb-4" action="{{ route('search.index') }}" method="GET">
                 @csrf
                 <input type="text" value="{{ request()->input('keyword') }}" name="keyword" style="display: none">
                 <div class="col-md">
@@ -66,7 +66,7 @@
                                             <h3 class="h4 post-title">{{ $n->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
-                                            <a href="kategori result.html">
+                                            <a href="">
                                                 <span class="small text-primary">
                                                     <i class="bi bi-person-square mx-1" aria-hidden="true"></i>
                                                     {{ $n->UserUpdate }}
@@ -74,18 +74,18 @@
                                             </a>
                                             <span class="small">
                                                 <i class="bi bi-calendar2 mx-1" aria-hidden="true"></i>
-                                                {{ date('d M Y', strtotime($n->Tanggal)) }}
+                                                {{ date('d M Y', strtotime($n->Tanggal)) . ' ' . ucwords($n->media) }}
                                             </span>
                                         </div>
-                                        <p class="post-descmin">
+                                        <div class="post-descmin">
                                             {!! $n->Rangkuman !!}
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-
+                    {{ $news->appends(request()->all())->links() }}
                 </div>
                 <div class="col-md-4">
                     <div class="sticky-side">
