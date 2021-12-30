@@ -39,7 +39,7 @@ class WelcomeController extends Controller
             $query->whereHas('tags', function (Builder $query) {
                 $query->with('criteria');
             });
-        })->orderBy('ref_news', 'desc')->paginate(5);
+        })->orderBy('ref_news', 'desc')->limit(5)->get();
 
         $picks = $this->pick->whereHas('news', function (Builder $query) {
             $query->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
@@ -47,7 +47,7 @@ class WelcomeController extends Controller
             $query->whereHas('tags', function (Builder $query) {
                 $query->with('criteria');
             });
-        })->orderBy('ref_news', 'desc')->paginate(5);
+        })->orderBy('ref_news', 'desc')->limit(5)->get();
 
         $economiesHot = $this->pick->whereHas('news', function (Builder $query) {
             $query->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
@@ -55,7 +55,7 @@ class WelcomeController extends Controller
             $query->whereHas('tags', function (Builder $query) {
                 $query->with('criteria');
             });
-        })->orderBy('ref_news', 'desc')->paginate(10)->getCollection()->random(6);
+        })->orderBy('ref_news', 'desc')->limit(10)->get()->random(6);
 
         $focus = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')->where(['approval' => 1])->orderBy('ref', 'desc')->paginate(10)->getCollection()->random(6);
         $request->merge(['page' => 2]);
@@ -67,25 +67,25 @@ class WelcomeController extends Controller
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::EKONOMI]);
             })->with('criteria');
-        })->orderBy('Tanggal', 'desc')->paginate(5);
+        })->orderBy('Tanggal', 'desc')->limit(5)->get();
 
         $socials = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::SOSIAL]);
             })->with('criteria');
-        })->orderBy('Tanggal', 'desc')->paginate(5);
+        })->orderBy('Tanggal', 'desc')->limit(5)->get();
 
         $sumberdaya = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::SUMBERDAYAALAM]);
             })->with('criteria');
-        })->orderBy('Tanggal', 'desc')->paginate(5);
+        })->orderBy('Tanggal', 'desc')->limit(5)->get();
 
         $birokrasi = $this->news->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')->where(['approval' => 1])->whereHas('tags', function (Builder $query) {
             $query->whereHas('criteria', function (Builder $query) {
                 $query->where(['ref' => self::BIROKRASI]);
             })->with('criteria');
-        })->orderBy('Tanggal', 'desc')->paginate(5);
+        })->orderBy('Tanggal', 'desc')->limit(5)->get();
 
         return view('welcome', compact('economiesHot', 'focus', 'focus2', 'focus3', 'socials', 'economies', 'categories', 'sumberdaya', 'birokrasi', 'hotNews', 'picks'));
     }

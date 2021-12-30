@@ -39,7 +39,7 @@ class CategoryController extends Controller
             $category = json_decode(json_encode($category->toArray()));
             $category->news = $this->news
                 ->select('media', 'ref', 'Tanggal', 'Headline', 'Rangkuman', 'image', 'ekstensi', 'UserUpdate', 'DateUpdate')
-                ->whereIn('ref', $id_news)->where('Tanggal', '<=', date('Y-m-d'))->orderBy('Tanggal', 'desc')->paginate(10)->getCollection();
+                ->whereIn('ref', $id_news)->where('Tanggal', '<=', date('Y-m-d'))->orderBy('Tanggal', 'desc')->limit(10)->get();
             $collection[] = $category;
         }
         $categories = $collection;
@@ -49,7 +49,7 @@ class CategoryController extends Controller
             $query->whereHas('tags', function (Builder $query) {
                 $query->with('criteria');
             });
-        })->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
+        })->orderBy('Tanggal', 'desc')->groupBy('ref_news')->limit(5)->get();
 
         return view('category.index', compact('categories', 'picks'));
     }
@@ -92,7 +92,7 @@ class CategoryController extends Controller
             $id_news = array_merge($id_news, $tag->id_news->toArray());
         }
         $news = $this->news->whereIn('ref', $id_news)->orderBy('Tanggal', 'desc')->paginate(10);
-        $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
+        $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->limit(5)->get();
 
         return view('category.show', compact('categories', 'category', 'news', 'count', 'pick'));
     }
