@@ -72,13 +72,13 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $slug = null)
     {
         $news = $this->news->find($id);
         $response = Http::get("https://mining.labirin.id/recommender_base/$id");
         $json = $response->json();
         $related = json_decode(json_encode($json));
-        $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->paginate(5);
+        $pick = $this->pick->whereHas('news')->orderBy('Tanggal', 'desc')->groupBy('ref_news')->limit(5)->get();
         $categories = $this->categories->all();
 
         return view('news.detail', compact('news', 'related', 'pick', 'categories'));

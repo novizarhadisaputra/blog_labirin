@@ -45,13 +45,13 @@
                                         <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
                                                 aria-hidden="true"></i>{{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
                                     </a>
-                                    <a href="{{ route('news.show', ['news' => $n->ref]) }}">
+                                    <a href="{{ route('news.show', ['slug' => $n->slug, 'news' => $n->ref]) }}">
                                         <img src="{{ $n->image ? env('APP_IMAGE_URL') . '/' . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
                                             alt="...">
                                     </a>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <a href="{{ route('news.show', ['news' => $n->ref]) }}">
+                                    <a href="{{ route('news.show', ['slug' => $n->slug, 'news' => $n->ref]) }}">
                                         <h2 class="post-title">{{ $n->Headline }}
                                         </h2>
                                     </a>

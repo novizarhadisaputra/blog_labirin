@@ -3,13 +3,13 @@
     @forelse ($picks as $pick)
         <li class="d-flex mb-4 position-relative">
             <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                <a href="{{ route('news.show', ['news' => $pick->news->ref]) }}">
+                <a href="{{ route('news.show', ['news' => $pick->news->ref, 'slug' => $pick->news->slug]) }}">
                     <img src="{{ $pick->news->image ? 'https://labirin.id/asset/Images/medium/' . $pick->news->image . '.' . $pick->news->ekstensi : asset('assets/img/no-image.png') }}"
                         alt="{{ $pick->news->Headline }}">
                 </a>
             </div>
             <div class="flex-grow-1 ms-3">
-                <a href="{{ route('news.show', ['news' => $pick->news->ref]) }}">
+                <a href="{{ route('news.show', ['news' => $pick->news->ref, 'slug' => $pick->news->slug]) }}">
                     <h3 class="h4 post-title">{{ $pick->news->Headline }}</h3>
                 </a>
                 <div class="mb-2">

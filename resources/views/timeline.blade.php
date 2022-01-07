@@ -35,13 +35,13 @@
                                                                 aria-hidden="true"></i>
                                                             {{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
                                                     </a>
-                                                    <a href="{{ route('news.show', ['news' => $n->ref]) }}">
+                                                    <a href="{{ route('news.show', ['news' => $n->ref, 'slug' => $n->slug]) }}">
                                                         <img src="{{ $n->image ? env('APP_IMAGE_URL') . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
                                                             alt="{{ $n->Headline }}">
                                                     </a>
                                                 </div>
                                                 <div class="flex-grow-1 ms-3">
-                                                    <a href="{{ route('news.show', ['news' => $n->ref]) }}">
+                                                    <a href="{{ route('news.show', ['news' => $n->ref, 'slug' => $n->slug]) }}">
                                                         <h2 class="post-title">{{ $n->Headline }}</h2>
                                                     </a>
                                                     <div class="mb-2">

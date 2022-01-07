@@ -9,7 +9,8 @@
                             <div class="item">
                                 <div class="post-slider">
                                     <div class="position-relative img-hover-zoom ">
-                                        <a href="{{ route('news.show', ['news' => $economy->ref]) }}" target="_blank">
+                                        <a href="{{ route('news.show', ['news' => $economy->ref, 'slug' => $economy->slug]) }}"
+                                            target="_blank">
                                             <img src="{{ $economy->image ? env('APP_IMAGE_URL') . $economy->image . '.' . $economy->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $economy->Headline }}">
                                             <div class="overlay"></div>
@@ -28,7 +29,8 @@
                                                 {{ date('d M Y', strtotime($economy->Tanggal)) }}
                                             </span>
                                         </div>
-                                        <a href="{{ route('news.show', ['news' => $economy->ref]) }}">
+                                        <a
+                                            href="{{ route('news.show', ['news' => $economy->ref, 'slug' => $economy->slug]) }}">
                                             <h2 class="text-white post-title">{{ $economy->Headline }}</h2>
                                         </a>
                                     </div>
@@ -43,7 +45,8 @@
                             <div class="item">
                                 <div class="post-slider">
                                     <div class="position-relative img-hover-zoom ">
-                                        <a href="{{ route('news.show', ['news' => $social->ref]) }}" target="_blank">
+                                        <a href="{{ route('news.show', ['news' => $social->ref, 'slug' => $social->slug]) }}"
+                                            target="_blank">
                                             <img src="{{ $social->image ? env('APP_IMAGE_URL') . $social->image . '.' . $social->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $social->Headline }}">
                                             <div class="overlay"></div>
@@ -62,7 +65,8 @@
                                                     aria-hidden="true"></i>{{ date('d M Y', strtotime($social->Tanggal)) }}
                                             </span>
                                         </div>
-                                        <a href="{{ route('news.show', ['news' => $social->ref]) }}">
+                                        <a
+                                            href="{{ route('news.show', ['news' => $social->ref, 'slug' => $social->slug]) }}">
                                             <h2 class="text-white post-title">{{ $social->Headline }}</h2>
                                         </a>
                                     </div>
@@ -75,7 +79,8 @@
                             <div class="item">
                                 <div class="post-slider">
                                     <div class="position-relative img-hover-zoom ">
-                                        <a href="{{ route('news.show', ['news' => $biro->ref]) }}" target="_blank">
+                                        <a href="{{ route('news.show', ['news' => $biro->ref, 'slug' => $biro->slug]) }}"
+                                            target="_blank">
                                             <img src="{{ $biro->image ? env('APP_IMAGE_URL') . $biro->image . '.' . $biro->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $biro->Headline }}">
                                             <div class="overlay"></div>
@@ -94,7 +99,8 @@
                                                 {{ date('d M Y', strtotime($biro->Tanggal)) }}
                                             </span>
                                         </div>
-                                        <a href="{{ route('news.show', ['news' => $biro->ref]) }}">
+                                        <a
+                                            href="{{ route('news.show', ['news' => $biro->ref, 'slug' => $biro->slug]) }}">
                                             <h2 class="text-white post-title">{{ $biro->Headline }}</h2>
                                         </a>
                                     </div>
@@ -123,13 +129,15 @@
                                                     aria-hidden="true"></i>
                                                 {{ $hot->news->tags[0]->criteria()->first()->Kriteria }}</span>
                                         </a>
-                                        <a href="{{ route('news.show', ['news' => $hot->news->ref]) }}"><img
+                                        <a
+                                            href="{{ route('news.show', ['news' => $hot->news->ref, 'slug' => $hot->news->slug]) }}"><img
                                                 class="img-fluid"
                                                 src="{{ $hot->news->image ? env('APP_IMAGE_URL') . $hot->news->image . '.' . $hot->news->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $hot->news->Headline }}"></a>
                                     </div>
                                     <div class="card-body py-2 px-0">
-                                        <a href="{{ route('news.show', ['news' => $hot->news->ref]) }}">
+                                        <a
+                                            href="{{ route('news.show', ['news' => $hot->news->ref, 'slug' => $hot->news->slug]) }}">
                                             <h3 class="h4 post-title">{{ $hot->news->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
@@ -177,13 +185,15 @@
                                                         aria-hidden="true"></i>
                                                     {{ ucwords($eh->news->tags[0]->criteria()->first()->Kriteria) }}</span>
                                             </a>
-                                            <a href="{{ route('news.show', ['news' => $eh->news->ref]) }}"><img
+                                            <a
+                                                href="{{ route('news.show', ['news' => $eh->news->ref, 'slug' => $eh->news->slug]) }}"><img
                                                     class="img-fluid"
                                                     src="{{ $eh->news->image ? env('APP_IMAGE_URL') . $eh->news->image . '.' . $eh->news->ekstensi : asset('assets/img/no-image.png') }}"
                                                     alt="{{ $eh->news->Headline }}"></a>
                                         </div>
                                         <div class="card-body py-2 px-0">
-                                            <a href="{{ route('news.show', ['news' => $eh->news->ref]) }}">
+                                            <a
+                                                href="{{ route('news.show', ['news' => $eh->news->ref, 'slug' => $eh->news->slug]) }}">
                                                 <h3 class="h4 post-title">{{ $eh->news->Headline }}</h3>
                                             </a>
                                             <div class="mb-2">
@@ -227,13 +237,15 @@
                                                     aria-hidden="true"></i>
                                                 {{ ucfirst($eh->news->tags[0]->criteria()->first()->Kriteria) }}</span>
                                         </a>
-                                        <a href="{{ route('news.show', ['news' => $eh->news->ref]) }}">
+                                        <a
+                                            href="{{ route('news.show', ['news' => $eh->news->ref, 'slug' => $eh->news->slug]) }}">
                                             <img src="{{ $eh->news->image ? env('APP_IMAGE_URL') . $eh->news->image . '.' . $eh->news->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $eh->news->Headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $eh->news->ref]) }}">
+                                        <a
+                                            href="{{ route('news.show', ['news' => $eh->news->ref, 'slug' => $eh->news->slug]) }}">
                                             <h2 class="post-title">{{ $eh->news->Headline }}
                                             </h2>
                                         </a>
@@ -283,7 +295,8 @@
                                             <div class="card bg-transparent border-0 mb-1">
                                                 <div class="img-hover-zoom">
                                                     @if ($i == 0)
-                                                        <a href="{{ route('news.show', ['news' => $focs->ref]) }}"><img
+                                                        <a
+                                                            href="{{ route('news.show', ['news' => $focs->ref, 'slug' => $focs->slug]) }}"><img
                                                                 class="img-fluid"
                                                                 src="{{ $focs->image ? env('APP_IMAGE_URL') . $focs->image . '.' . $focs->ekstensi : asset('assets/img/no-image.png') }}"
                                                                 alt="{{ $focs->Headline }}"></a>
@@ -291,7 +304,8 @@
 
                                                 </div>
                                                 <div class="card-body pt-2 p-0">
-                                                    <a href="{{ route('news.show', ['news' => $focs->ref]) }}">
+                                                    <a
+                                                        href="{{ route('news.show', ['news' => $focs->ref, 'slug' => $focs->slug]) }}">
                                                         <h3 class="h5 post-title">{{ $focs->Headline }}</h3>
                                                     </a>
                                                 </div>
@@ -309,7 +323,8 @@
                                             <div class="card bg-transparent border-0 mb-1">
                                                 <div class="img-hover-zoom">
                                                     @if ($i == 0)
-                                                        <a href="{{ route('news.show', ['news' => $focs2->ref]) }}"><img
+                                                        <a
+                                                            href="{{ route('news.show', ['news' => $focs2->ref, 'slug' => $focs2->slug]) }}"><img
                                                                 class="img-fluid"
                                                                 src="{{ $focs2->image ? env('APP_IMAGE_URL') . $focs2->image . '.' . $focs2->ekstensi : asset('assets/img/no-image.png') }}"
                                                                 alt="{{ $focs2->Headline }}"></a>
@@ -317,7 +332,8 @@
 
                                                 </div>
                                                 <div class="card-body pt-2 p-0">
-                                                    <a href="{{ route('news.show', ['news' => $focs2->ref]) }}">
+                                                    <a
+                                                        href="{{ route('news.show', ['news' => $focs2->ref, 'slug' => $focs2->slug]) }}">
                                                         <h3 class="h5 post-title">{{ $focs2->Headline }}</h3>
                                                     </a>
                                                 </div>

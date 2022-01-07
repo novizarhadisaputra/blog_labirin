@@ -24,13 +24,13 @@
                             @foreach ($economies as $economy)
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $economy->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $economy->slug, 'news' => $economy->ref]) }}">
                                             <img src="{{ $economy->image ? env('APP_IMAGE_URL') . $economy->image . '.' . $economy->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $economy->Headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $economy->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $economy->slug, 'news' => $economy->ref]) }}">
                                             <h3 class="h4 post-title">{{ $economy->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
@@ -56,13 +56,13 @@
                             @foreach ($socials as $social)
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $social->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $social->slug, 'news' => $social->ref]) }}">
                                             <img src="{{ $social->image ? env('APP_IMAGE_URL') . $social->image . '.' . $social->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $social->Headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $social->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $social->slug, 'news' => $social->ref]) }}">
                                             <h3 class="h4 post-title">{{ $social->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
@@ -90,13 +90,13 @@
                             @foreach ($birokrasi as $biro)
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $biro->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $biro->slug, 'news' => $biro->ref]) }}">
                                             <img src="{{ $biro->image ? env('APP_IMAGE_URL') . $biro->image . '.' . $biro->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $biro->Headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $biro->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $biro->slug, 'news' => $biro->ref]) }}">
                                             <h3 class="h4 post-title">{{ $biro->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
@@ -123,13 +123,13 @@
                             @foreach ($sumberdaya as $sda)
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $sda->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $sda->slug, 'news' => $sda->ref]) }}">
                                             <img src="{{ $sda->image ? env('APP_IMAGE_URL') . $sda->image . '.' . $sda->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $sda->Headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $sda->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $sda->slug, 'news' => $sda->ref]) }}">
                                             <h3 class="h4 post-title">{{ $sda->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">
@@ -155,13 +155,13 @@
                             @foreach ($infrastruktur as $infra)
                                 <div class="d-flex mb-4">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $infra->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $infra->slug, 'news' => $infra->ref]) }}">
                                             <img src="{{ $infra->image ? env('APP_IMAGE_URL') . $infra->image . '.' . $infra->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $infra->Headline }}">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $infra->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $infra->slug, 'news' => $infra->ref]) }}">
                                             <h3 class="h4 post-title">{{ $infra->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">

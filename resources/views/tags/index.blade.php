@@ -25,13 +25,13 @@
                                                     aria-hidden="true"></i>
                                                 {{ $n->tags[0]->criteria()->first()->Kriteria }}</span>
                                         </a>
-                                        <a href="{{ route('news.show', ['news' => $n->ref]) }}"><img
+                                        <a href="{{ route('news.show', ['news' => $n->ref, 'slug' => $n->slug]) }}"><img
                                                 class="img-fluid"
                                                 src="{{ $n->image ? env('APP_IMAGE_URL') . '/' . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="{{ $n->Headline }}"></a>
                                     </div>
                                     <div class="card-body py-2 px-0">
-                                        <a href="{{ route('news.show', ['news' => $n->ref]) }}">
+                                        <a href="{{ route('news.show', ['news' => $n->ref, 'slug' => $n->slug]) }}">
                                             <h3 class="h4 post-title">{{ $n->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">

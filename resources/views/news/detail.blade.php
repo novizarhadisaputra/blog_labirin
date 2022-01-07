@@ -1,3 +1,7 @@
+@php
+    use Illuminate\Support\Str;
+@endphp
+
 @extends('layouts.frontend')
 @section('content')
     <section class="mt-4">
@@ -86,7 +90,7 @@
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $relate->id_news]) }}">
+                                        <a href="{{ route('news.show', ['news' => $relate->id_news, 'slug' => Str::slug($relate->headline)]) }}">
                                             <h3 class="h4 post-title">{{ $relate->headline }}</h3>
                                         </a>
                                         <div class="mb-2">
@@ -106,13 +110,13 @@
                             @forelse ($pick as $hit)
                                 <li class="d-flex mb-4 position-relative">
                                     <div class="flex-shrink-0 img-thumb-sm img-hover-zoom mx-1">
-                                        <a href="{{ route('news.show', ['news' => $hit->news->ref]) }}">
+                                        <a href="{{ route('news.show', ['news' => $hit->news->ref, 'slug' => $hit->news->slug]) }}">
                                             <img src="{{ $hit->news->image ? env('APP_IMAGE_URL') . '/' . $hit->news->image . '.' . $hit->news->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="...">
                                         </a>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <a href="{{ route('news.show', ['news' => $hit->news->ref]) }}">
+                                        <a href="{{ route('news.show', ['news' => $hit->news->ref, 'slug' => $hit->news->slug]) }}">
                                             <h3 class="h4 post-title">{{ $hit->news->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">

@@ -24,13 +24,13 @@
                                             <span class="badge badge-secondary p-1"><i class="bi bi-folder mx-1"
                                                     aria-hidden="true"></i> {{ $category->Kriteria }}</span>
                                         </a>
-                                        <a href="{{ route('news.show', ['news' => $n->ref]) }}"><img
+                                        <a href="{{ route('news.show', ['slug' => $n->slug, 'news' => $n->ref]) }}"><img
                                                 class="img-fluid"
                                                 src="{{ $n->image ? env('APP_IMAGE_URL') . '/' . $n->image . '.' . $n->ekstensi : asset('assets/img/no-image.png') }}"
                                                 alt="..."></a>
                                     </div>
                                     <div class="card-body py-2 px-0">
-                                        <a href="{{ route('news.show', ['news' => $n->ref]) }}">
+                                        <a href="{{ route('news.show', ['slug' => $n->slug, 'news' => $n->ref]) }}">
                                             <h3 class="h4 post-title">{{ $n->Headline }}</h3>
                                         </a>
                                         <div class="mb-2">

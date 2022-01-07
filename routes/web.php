@@ -36,5 +36,6 @@ Route::prefix('fokus')->group(function () {
     Route::get('/', [FocusController::class, 'index'])->name('fokus.index');
 });
 Route::resource('kategori', CategoryController::class);
-Route::resource('news', NewsController::class);
+Route::resource('news', NewsController::class)->except(['show']);
+Route::get('news/{news}/{slug?}', [NewsController::class, 'show'])->name('news.show');
 Route::resource('tag', TagController::class);
